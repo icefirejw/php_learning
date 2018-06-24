@@ -1,0 +1,71 @@
+﻿create database db_duty character set utf8;
+GRANT all on db_duty.* TO db_duty@localhost IDENTIFIED by 'db_duty'; 
+
+
+CREATE TABLE user (No INT NOT NULL AUTO_INCREMENT, Username char(16) NOT NULL, Account char(16) unique Not Null, Tel1 char(32) Not Null, Tel2 char(32), Address char(60), Password char(16), 
+Lastonduty DATE not null,
+onduty char(4) not null,
+admin char(4),
+PRIMARY KEY (No)
+);
+#alter table user add onduty char(4) not null;
+#alter table user add Password char(16);
+#alter table user modify Lastonduty char(16) not null;
+#alter table user  ADD KEY (account); 
+#alter table user add admin char(4);
+
+CREATE TABLE duty(
+No INT NOT NULL AUTO_INCREMENT, 
+date1 DATE unique NOT NULL, 
+moddate DATE NOT NULL, 
+onduty int NOT NULL,
+memo char(255),
+PRIMARY KEY(No)
+);
+
+insert into user (Account, Password, Username, Tel1, Tel2, Address, onduty, lastonduty) values ('999999','123456','测试','123444','0574-89068182','a','0','20110101') 
+
+insert into user (Account, Password, Username, Tel1, Tel2, Address, onduty, lastonduty, admin) 
+values ('999999','admin','admin', '123456','123456','administrator address','0','20110101','1');
+
++----+-------------+---------+-------------+---------------+---------+----------+------------+--------+-------+
+| No | Username    | Account | Tel1        | Tel2          | Address | Password | Lastonduty | onduty | admin |
++----+-------------+---------+-------------+---------------+---------+----------+------------+--------+-------+
+|  2 | wangsenbo   | 092861  | 15988666039 | 0574-89068182 | aa      | 123456   | 2011-10-24 | 1      | NULL  |
+|  3 | shenweiming | 060095  | 18606628360 | 0574-89068182 | aa      | 123456   | 2011-10-29 | 1      | NULL  |
+|  4 | chengshuai  | 060151  | 13566005040 | 0574-87879425 | aa      | 123456   | 2011-10-30 | 1      | NULL  |
+|  5 | liyang      | 100320  | 18657463610 | 0574-87879425 |         | 123456   | 2011-10-31 | 1      | NULL  |
+|  6 | wangqiang   | 080324  | 13777015170 | 0574-87846031 |         | 123456   | 2011-10-22 | 1      | NULL  |
+|  7 | shixingzu   | 093012  | 15258342771 | 0574-87879425 |         | 123456   | 2011-10-23 | 1      | NULL  |
+|  8 | sunxiaoming | 080186  | 13566303034 | 0574-88638673 |         | 123456   | 2011-10-25 | 1      | NULL  |
+|  9 | xiayi       | 080269  | 18606611366 | 0574-89068182 |         | 123456   | 2011-10-26 | 1      | NULL  |
+| 10 | chengfuting | 080174  | 13655785686 | 0574-89068182 |         | 123456   | 2011-10-27 | 1      | NULL  |
+| 11 | zhoucong    | 092947  | 15058801081 | 0574-87879425 |         | 123456   | 2011-10-28 | 1      | NULL  |
++----+-------------+---------+-------------+---------------+---------+----------+------------+--------+-------+
+
+update user set Lastonduty='20120531' where account='060151';
+update user set Lastonduty='20120521' where account='100320';
+update user set Lastonduty='20120523' where account='111678';
+update user set Lastonduty='20120526' where account='080186';
+update user set Lastonduty='20120527' where account='080269';
+
+update user set onduty='0' where account='092861';
+update user set onduty='0' where account='060095';
+update user set onduty='0' where account='080324';
+update user set onduty='0' where account='093012';
+update user set onduty='0' where account='080174';
+update user set onduty='0' where account='092947';
+
+
+update user set Username='王森波' where account='092861';
+update user set Username='沈伟明' where account='060095';
+update user set Username='程帅' where account='060151';
+update user set Username='李阳' where account='100320';
+update user set Username='王强' where account='080324';
+update user set Username='施兴祖' where account='093012';
+update user set Username='孙校明' where account='080186';
+update user set Username='夏毅' where account='080269';
+update user set Username='程福挺' where account='080174';
+update user set Username='周聪' where account='092947';
+
+
